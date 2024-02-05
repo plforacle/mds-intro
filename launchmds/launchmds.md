@@ -1,14 +1,14 @@
-# Create and connect to a MySQL Database System
+# Create and connect to MySQL HeatWave Service
 
 ## Introduction
 
-In this lab, you will learn how to launch a MySQL Database Service System on Oracle Cloud Infrastructure (OCI) and connect to it using the Oracle Cloud Console.
+In this lab, you will learn how to launch a MySQL HeatWave Service instance on Oracle Cloud Infrastructure (OCI) and connect to it using the Oracle Cloud Console.
 
 Estimated Time: 90 minutes
 
-### About MySQL Database Service
+### About MySQL HeatWave Service
 
-MySQL Database Service is a fully-managed OCI service that is developed, managed, and supported by the MySQL team in Oracle.
+MySQL HeatWave is a fully-managed OCI service that is developed, managed, and supported by the MySQL team in Oracle.
 
 ### Objectives
 
@@ -17,10 +17,10 @@ In this lab, you will be guided through the following steps:
 - Create a Compartment
 - Create a policy
 - Create a virtual cloud network (VCN)
-- Create a MySQL Database System
+- Create a MySQL HeatWave Database System
 - Create a client virtual machine
-- Connect to MySQL Database
-- Start, stop, reboot, or delete a MySQL Database
+- Connect to MySQL HeatWave
+- Start, stop, reboot, or delete a MySQL HeatWave
 
 ### Prerequisites
 
@@ -30,7 +30,7 @@ In this lab, you will be guided through the following steps:
 
 ## Task 1: Create a Compartment
 
-You must have an OCI tenancy subscribed to your home region and enough limits configured for your tenancy to create a MySQL Database System. Make sure to log in to the Oracle Cloud Console as an Administrator.
+You must have an OCI tenancy subscribed to your home region and enough limits configured for your tenancy to create a MySQL HeatWave Database System. Make sure to log in to the Oracle Cloud Console as an Administrator.
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Identity & Security** and select **Compartments**.
 
@@ -66,7 +66,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![Create Policy page](./images/02policy03.png " ")
 
-5. Enter the following required MySQL Database Service policies:
+5. Enter the following required MySQL HeatWave policies:
 
     - Policy statement 1:
 
@@ -343,15 +343,15 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
 13. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
 
-    - MySQL Workbench configuration for MySQL MySQL Database Service:
+    - MySQL Workbench configuration for MySQL HeatWave:
 
      ![Connect](./images/06workbench01.png " ")
 
-    - MySQL Workbench launched for MySQL Database Service:
+    - MySQL Workbench launched for MySQL HeatWave :
 
      ![Connect](./images/06workbench02.png " ")
 
-## Task 7: Start, Stop, or Reboot MySQL Database System
+## Task 7: Start, Stop, or Reboot MySQL HeatWave System
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Databases**, and select **DB Systems**.
 
@@ -416,10 +416,12 @@ When the delete process is done, **MDS_DB** will be set to the **Delete** status
 
 ## Learn More
 
-* [Oracle Cloud Infrastructure MySQL Database Service Documentation ](https://docs.cloud.oracle.com/en-us/iaas/mysql-database)
+* [Oracle Cloud Infrastructure MySQL HeatWave Database Service Documentation](https://docs.cloud.oracle.com/en-us/iaas/mysql-database)
+
 * [MySQL Database Documentation](https://www.mysql.com)
 
 ## Acknowledgements
+
 * **Author** -  Perside Foster, MySQL Solution Engineering
-* **Contributors** -  Airton Lastori, MySQL Principal Product Manager, Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager
-* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021
+* **Contributors** -  Sriram Vrinda, MySQL Product Manager
+* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, February 2024
