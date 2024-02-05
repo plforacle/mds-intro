@@ -1,6 +1,7 @@
 # Create and connect to a MySQL Database System
 
 ## Introduction
+
 In this lab, you will learn how to launch a MySQL Database Service System on Oracle Cloud Infrastructure (OCI) and connect to it using the Oracle Cloud Console.
 
 Estimated Time: 90 minutes
@@ -51,21 +52,21 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 ## Task 2: Create a Policy
 
-1.	Click the **Navigation Menu** in the upper-left corner, navigate to **Identity & Security** and select **Policies**.
+1. Click the **Navigation Menu** in the upper-left corner, navigate to **Identity & Security** and select **Policies**.
 
      ![](https://oracle-livelabs.github.io/common/images/console/id-policies.png " ")
 
-2.	On the Policies page, in the **List Scope** section, select the Compartment (root) and click **Create Policy**.
+2. On the Policies page, in the **List Scope** section, select the Compartment (root) and click **Create Policy**.
 
     ![Policies page](./images/02policy02.png " ")
 
-3.	On the Create Policy page, in the **Description** field, enter **MDS_Policy** and select the root compartment.
+3. On the Create Policy page, in the **Description** field, enter **MDS_Policy** and select the root compartment.
 
-3. In the **Policy Builder** section, turn on the **Show manual editor** toggle switch.
+4. In the **Policy Builder** section, turn on the **Show manual editor** toggle switch.
 
     ![Create Policy page](./images/02policy03.png " ")
 
-4. Enter the following required MySQL Database Service policies:
+5. Enter the following required MySQL Database Service policies:
 
     - Policy statement 1:
 
@@ -85,7 +86,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
     <copy>Allow group Administrators to manage mysql-family in tenancy</copy>
     ```
 
-5. Click **Create**.
+6. Click **Create**.
 
     ![Create Policy page](./images/02policy04.png " ")
 
@@ -120,39 +121,41 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![VCN creation page](./images/03vcn05.png " ")
 
-8. Click **View Virtual Cloud Network** to display the created VCN.
+7. Click **View Virtual Cloud Network** to display the created VCN.
 
     ![VCN](./images/03vcn06.png " ")
 
-9. In the **Name** column, click **MDS_VCN**.
+8. In the **Name** column, click **MDS_VCN**.
 
    ![COMPUTE](./images/03vcn08.png " ")
 
-10.	On the Virtual Cloud Network Details page, under **Resources**, select **Security Lists (2)**.
+9. On the Virtual Cloud Network Details page, under **Resources**, select **Security Lists (2)**.
 
      ![COMPUTE](./images/03vcn09.png " ")
 
-11.	In the **Security Lists in _Compartment\_Name_ Compartment** section, click **Security List for Private Subnet-MDS_VCN**.
+## Task 4: Configure security list to allow MySQL incoming connections
+
+1. In the **Security Lists in _Compartment\_Name_ Compartment** section, click **Security List for Private Subnet-MDS_VCN**.
 
     ![COMPUTE](./images/03vcn10.png " ")
 
-12.	In the **Security List for Private Subnet-MDS_VCN** section, in the **Ingress Rules** section, click **Add Ingress Rules**.
+2. In the **Security List for Private Subnet-MDS_VCN** section, in the **Ingress Rules** section, click **Add Ingress Rules**.
 
     ![COMPUTE](./images/03vcn11.png " ")
 
-13.	In the **Add Ingress Rule** dialog box, add an ingress rule with **Source CIDR** `0.0.0.0/0` and destination port number `3306, 33060` and click **Add Ingress Rule**.
+3. In the **Add Ingress Rule** dialog box, add an ingress rule with **Source CIDR** `0.0.0.0/0` and destination port number `3306, 33060` and click **Add Ingress Rule**.
 
     ![COMPUTE](./images/03vcn12.png " ")
 
-14.	On the Security List for Private Subnet-MDS_VCN page, the new ingress rules will be shown in the **Ingress Rules** list.
+4. On the Security List for Private Subnet-MDS_VCN page, the new ingress rules will be shown in the **Ingress Rules** list.
 
     ![COMPUTE](./images/03vcn13.png " ")
 
-## Task 4: Create a MySQL Database System
+## Task 5: Create a MySQL Database System
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Databases**, and select **Database Systems**.
 
-   ![](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png " ")
+   ![NAV](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png " ")
 
 2. Click **Create MySQL Database System**.
 
@@ -195,11 +198,11 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![MDS](./images/04mysql02_07.png " ")
 
-19. In **Configure Backups**, keep **Enable Automatic Backups** selected. Set the retention period to `7` and select **Default Backup Window**.
+10. In **Configure Backups**, keep **Enable Automatic Backups** selected. Set the retention period to `7` and select **Default Backup Window**.
 
     ![MDS](./images/04mysql02_08.png " ")
 
-20. Click **Create**.
+11. Click **Create**.
 
     ![MDS](./images/04mysql02_09.png " ")
 
@@ -209,7 +212,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     > **Note:** The **Active** state indicates that the database system is ready to use.
 
-21. On the MySQL Database System Details page, verify that the MySQL endpoint (address) displays under **Instances**.
+12. On the MySQL Database System Details page, verify that the MySQL endpoint (address) displays under **Instances**.
 
     ![MDS](./images/04mysql02_11.png " ")
 
@@ -262,11 +265,11 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
-1.  If you are a Windows user, click the Start menu from your windows machine to access Git, which should include the Git Bash command. select the Git Bash command.
+1. If you are a Windows user, click the Start menu from your windows machine to access Git, which should include the Git Bash command. select the Git Bash command.
 
     > **Note:** This will take you to the Git Bash terminal.
 
-2.  From a terminal window on your local system, connect to the compute instance with the SSH command.
+2. From a terminal window on your local system, connect to the compute instance with the SSH command.
 
 3. Indicate the location of the private key that you created earlier with **MDS_Client**.
 
@@ -302,7 +305,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![Connect](./images/06connect06.png " ")
 
-8.  Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
+8. Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
 
      ```
      <copy>[opc@...]$ mysqlsh -u<MDS_admin_username> -p -h<MDS_endpoint></copy>
@@ -340,11 +343,11 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
 13. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
 
-   - MySQL Workbench configuration for MySQL MySQL Database Service:
+    - MySQL Workbench configuration for MySQL MySQL Database Service:
 
      ![Connect](./images/06workbench01.png " ")
 
-   - MySQL Workbench launched for MySQL Database Service:
+    - MySQL Workbench launched for MySQL Database Service:
 
      ![Connect](./images/06workbench02.png " ")
 
@@ -379,7 +382,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
      - Slow: Flushes dirty pages and purges undo log pages for older transactions. The shutdown itself can take longer, but the subsequent startup is faster.
      - Immediate: Does not flush dirty pages and does not purge any undo log pages. Stops MySQL immediately. Page flushes and log purging will take place during the next startup, increasing the duration of the start-up process.
 
-5. Select the required shutdown type and click **Stop** or **Restart**, depending on the action chosen.
+6. Select the required shutdown type and click **Stop** or **Restart**, depending on the action chosen.
 
 ## Task 8: Delete the MySQL Database System
 
