@@ -34,132 +34,132 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 1. Click the **Navigation Menu** in the upper left, navigate to **Identity & Security** and select **Compartments**.
 
-    ![Oracle Cloud Console](https://oracle-livelabs.github.io/common/images/console/id-compartment.png " ")
+    ![Oracle Cloud Console](https://oracle-livelabs.github.io/common/images/console/id-compartment.png "Oracle Cloud Console")
 
 2. On the Compartments page, click **Create Compartment**.
 
-    ![Compartment2](./images/01compartment02.png " ")
+    ![Compartment2](./images/01compartment-page.png "In Compartments page ")
 
    > **Note:** Two Compartments, _Oracle Account Name_ (root) and a compartment for PaaS, were automatically created by the Oracle Cloud.
 
 3. In the Create Compartment dialog box, in the **NAME** field, enter **MDS_Sandbox**, and then enter a Description, select the **Parent Compartment**, and click **Create Compartment**.
 
-    ![Create a Compartment](./images/01compartment03.png " ")
+    ![Create a Compartment](./images/01compartment03.png "Enter Compartment Details")
 
     The following screen shot shows a completed compartment:
 
-    ![Completed Compartment](./images/01compartment04.png " ")
+    ![Completed Compartment](./images/01compartment04.png "Completed compartment")
 
 ## Task 2: Create a Policy
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Identity & Security** and select **Policies**.
 
-     ![](https://oracle-livelabs.github.io/common/images/console/id-policies.png " ")
+     ![Navigation Menu](https://oracle-livelabs.github.io/common/images/console/id-policies.png "Navigation Menu")
 
 2. On the Policies page, in the **List Scope** section, select the Compartment (root) and click **Create Policy**.
 
-    ![Policies page](./images/02policy02.png " ")
+    ![Policies page](./images/02policy02.png "Policies page")
 
 3. On the Create Policy page, in the **Description** field, enter **MDS_Policy** and select the root compartment.
 
 4. In the **Policy Builder** section, turn on the **Show manual editor** toggle switch.
 
-    ![Create Policy page](./images/02policy03.png " ")
+    ![Create Policy page](./images/02policy03.png "Create Policy page")
 
 5. Enter the following required MySQL HeatWave policies:
 
     - Policy statement 1:
 
-     ```
-    <copy>Allow group Administrators to {COMPARTMENT_INSPECT} in tenancy</copy>
-    ```
+        ```bash
+        <copy>Allow group Administrators to {COMPARTMENT_INSPECT} in tenancy</copy>
+        ```
 
     - Policy statement 2:
 
-     ```
-    <copy>Allow group Administrators to {VCN_READ, SUBNET_READ, SUBNET_ATTACH, SUBNET_DETACH} in tenancy</copy>
-    ```
+        ```bash
+        <copy>Allow group Administrators to {VCN_READ, SUBNET_READ, SUBNET_ATTACH, SUBNET_DETACH} in tenancy</copy>
+        ```
 
     - Policy statement 3:
 
-     ```
-    <copy>Allow group Administrators to manage mysql-family in tenancy</copy>
-    ```
+        ```bash
+        <copy>Allow group Administrators to manage mysql-family in tenancy</copy>
+        ```
 
 6. Click **Create**.
 
-    ![Create Policy page](./images/02policy04.png " ")
+    ![Create Policy page](./images/02policy04.png "Create Policy page")
 
     > **Note:** The following screen shot shows the completed policy creation:
 
-    ![Completed policy creation page](./images/02policy05.png " ")
+    ![Completed policy creation page](./images/02policy05.png "Completed policy creation page")
 
 ## Task 3: Create a VCN
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Networking**, and select **Virtual Cloud Networks**.
 
-   ![](https://oracle-livelabs.github.io/common/images/console/networking-vcn.png " ")
+   ![Virtual Cloud Networks](https://oracle-livelabs.github.io/common/images/console/networking-vcn.png "Virtual Cloud Networks")
 
 2. Click **Start VCN Wizard**.
 
 3. Select **VCN with Internet Connectivity** and click **Start VCN Wizard**.
 
-    ![Start VCN Wizard](./images/03vcn03.png " ")
+    ![Start VCN Wizard](./images/03vcn03.png "Start VCN Wizard")
 
 4. On the Create a VCN with Internet Connectivity page, in the **Basic Information** section, in the **VCN Name** field, enter `MDS_VCN` and from the **Compartment** drop-down list, select **MDS_Sandbox**.
     > **Note:** Your screen should look similar to the following screen shot:
 
-    ![VCN with Internet Connectivity page](./images/03vcn044.png " ")
+    ![VCN with Internet Connectivity page](./images/03vcn044.png "VCN with Internet Connectivity page")
 
 5. Click **Next** at the bottom of the screen.
 
 6. Review the **Oracle Virtual Cloud Network (VCN)**, **Subnets**, and **Gateways** sections and click **Create** to create the VCN.
 
-    ![VCN](./images/03vcn04.png " ")
+    ![VCN](./images/03vcn04.png "VCN")
 
     > **Note:** The VCN creation is completing.
 
-    ![VCN creation page](./images/03vcn05.png " ")
+    ![VCN creation page](./images/03vcn05.png "VCN creation page")
 
 7. Click **View Virtual Cloud Network** to display the created VCN.
 
-    ![VCN](./images/03vcn06.png " ")
+    ![View Virtual Cloud Network](./images/03vcn06.png "View Virtual Cloud Network")
 
 8. In the **Name** column, click **MDS_VCN**.
 
-   ![COMPUTE](./images/03vcn08.png " ")
+   ![MDS_VCN](./images/03vcn08.png " ")
 
 9. On the Virtual Cloud Network Details page, under **Resources**, select **Security Lists (2)**.
 
-     ![COMPUTE](./images/03vcn09.png " ")
+     ![Security Lists](./images/03vcn09.png "Security Lists")
 
-## Task 4: Configure security list to allow MySQL incoming connections
+## Task 4: Configure security list to allow MySQL incoming connectionMDS_VCNs
 
 1. In the **Security Lists in _Compartment\_Name_ Compartment** section, click **Security List for Private Subnet-MDS_VCN**.
 
-    ![COMPUTE](./images/03vcn10.png " ")
+    ![Private Subnet-MDS_VCN](./images/03vcn10.png "Private Subnet-MDS_VCN")
 
 2. In the **Security List for Private Subnet-MDS_VCN** section, in the **Ingress Rules** section, click **Add Ingress Rules**.
 
-    ![COMPUTE](./images/03vcn11.png " ")
+    ![Ingress Rules](./images/03vcn11.png "Ingress Rules")
 
 3. In the **Add Ingress Rule** dialog box, add an ingress rule with **Source CIDR** `0.0.0.0/0` and destination port number `3306, 33060` and click **Add Ingress Rule**.
 
-    ![COMPUTE](./images/03vcn12.png " ")
+    ![MySQL Port](./images/03vcn12.png "MySQL Port")
 
 4. On the Security List for Private Subnet-MDS_VCN page, the new ingress rules will be shown in the **Ingress Rules** list.
 
-    ![COMPUTE](./images/03vcn13.png " ")
+    ![Private Subnet-MDS_VCN page](./images/03vcn13.png "Private Subnet-MDS_VCN page")
 
 ## Task 5: Create a MySQL Database System
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Databases**, and select **Database Systems**.
 
-   ![NAV](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png " ")
+   ![Database Systems](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png "Database Systems")
 
 2. Click **Create MySQL Database System**.
 
-    ![MDS](./images/04mysql02.png " ")
+    ![Create MySQL Database System](./images/04mysql02.png "Create MySQL Database System")
 
 3. On the Create MySQL Database System dialog box, complete the fields in each section:
 
@@ -174,41 +174,41 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 4. In **Provide basic information for the DB System**, select the **MDS\_Sandbox** Compartment, in the **Name** field and **Description** field, enter **MDS_DB**.
 
-    ![MDS](./images/04mysql02_02.png " ")
+    ![Description](./images/04mysql02_02.png "Description")
 
 5. In **Setup your required Database System**, select **Standalone** to specify a single-instance database system.
 
-    ![MDS](./images/04mysql02_03.png " ")
+    ![Standalone](./images/04mysql02_03.png "Standalone")
 
-6. In **Create Administrator credentials**, enter **admin** for the user name, enter **Welcome1!** for the password, and then enter **Welcome1!** to confirm the password.   
+6. In **Create Administrator credentials**, enter **admin** for the user name, enter **Welcome1!** for the password, and then enter **Welcome1!** to confirm the password.
 
     ![MDS](./images/04mysql02_04.png " ")
 
 7. In **Configure networking**, keep default values **MDS\_VCN** for the VCH and **Private Subnet-MDS\_VCN (Regional)** for the subnet.
 
-    ![MDS](./images/04mysql02_05.png " ")
+    ![Configure networking](./images/04mysql02_05.png "Configure networking")
 
 8. In **Configure placement**, keep **Availability Domain** selected.
 
     > **Note:** Do not select **Choose a Fault Domain** for this database system. Oracle will select the best placement for you.
 
-    ![MDS](./images/04mysql02_06.png " ")
+    ![Configure placement](./images/04mysql02_06.png "Configure placement")
 
 9. In **Configure hardware**, keep default shape **MySQL.VM.Standard.E3.1.8GB** and keep the default value **50** for the **Data Storage Size (GB)**.
 
-    ![MDS](./images/04mysql02_07.png " ")
+    ![Data Storage Size](./images/04mysql02_07.png "Data Storage Size")
 
 10. In **Configure Backups**, keep **Enable Automatic Backups** selected. Set the retention period to `7` and select **Default Backup Window**.
 
-    ![MDS](./images/04mysql02_08.png " ")
+    ![Configure Backups](./images/04mysql02_08.png "Configure Backups")
 
 11. Click **Create**.
 
-    ![MDS](./images/04mysql02_09.png " ")
+    ![Create DB](./images/04mysql02_09.png "Create DB")
 
     > **Note:** The New MySQL Database System will be ready to use after a few minutes. The state will be shown as **Creating** during the creation.
 
-    ![MDS](./images/04mysql02_10.png " ")
+    ![Creating DB](./images/04mysql02_10.png "Creating DB")
 
     > **Note:** The **Active** state indicates that the database system is ready to use.
 
@@ -222,11 +222,11 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 1. You need a client machine to connect to your brand new MySQL database. Click the **Navigation Menu** in the upper-left corner, navigate to **Compute**, and select **Instances**.
 
-   ![](https://oracle-livelabs.github.io/common/images/console/compute-instances.png " ")
+   ![Compute Menu](https://oracle-livelabs.github.io/common/images/console/compute-instances.png "Compute Menu")
 
 2. In the **Instances in MDS_Sandbox Compartment** section, click **Create Instance**.
 
-    ![COMPUTE](./images/05compute02.png " ")
+    ![Create Instance Page](./images/05compute02.png "Create Instance Page")
 
 3. In the **Create Compute Instance** section, enter **MDS_Client** for the instance name.
 
@@ -236,11 +236,11 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 6. In the **Configure placement and hardware** section, select the **Availability Domain** and select  **VM.Standard.E2.1.Micro** for the **Shape**.
 
-   ![COMPUTE](./images/05compute03.png " ")
+   ![Configure placement and hardware](./images/05compute03.png "Configure placement and hardware")
 
     > **Note:** For the **Virtual cloud network**, make sure **MDS_VCN** is selected and **Assign a public IPv4 address** is set to **Yes**.  
 
-   ![COMPUTE](./images/05compute04.png " ")
+   ![Assign a public IPv4 address](./images/05compute04.png "Assign a public IPv4 address")
 
 7. If you have not already created your SSH key, complete the **Create Local SSH Key** lab. When you are done, continue on to the next step.
 
@@ -251,15 +251,15 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
    - **Paste public keys:** Paste the public key portion of your key pair in the field.
    - **No SSH keys:** Do _not_ select this option. You will not be able to connect to the compute instance using SSH.
 
-    ![COMPUTE](./images/05compute06.png " ")
+    ![SSH key pair](./images/05compute06.png "SSH key pair")
 
     > **Note:** The new virtual machine will be ready to use after a few minutes. The state will be shown as **Provisioning** during the creation.
 
-    ![COMPUTE](./images/05compute07.png " ")
+    ![Provisioning](./images/05compute07.png "Provisioning")
 
     > **Note:** The **Running** state indicates that the virtual machine is ready to use. **Save the Public IP Address** is under **Instance Access**  on the **MDS_Client** page.
 
-    ![COMPUTE](./images/05compute08.png " ")
+    ![Instance Access](./images/05compute08.png "Instance Access")
 
 ## Task 6: Connect to MySQL Database
 
@@ -277,93 +277,85 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
       > **Note:** The **MDS\_Client** shows the public IP Address as mentioned at the end of **Task 5: Create the Client Virtual Machine**. For example, **ssh -i ~/.ssh/id_rsa opc@&132.145.170.990**
 
-     ```
-     <copy>$ ssh -i ~/.ssh/id_rsa opc@&<your_compute_instance_ip>;</copy>
-     ```
+    ```bash
+    <copy>$ ssh -i ~/.ssh/id_rsa opc@&<your_compute_instance_ip>;</copy>
+    ```
 
-     ![Connect](./images/06connect01.png " ")
+     ![MySQL Connect](./images/06connect01.png "MySQL Connect")
 
-5. Install MySQL release package with the following command (you will need a MySQL client tool to connect to your new MySQL Database System from your client machine):
+5. Install MySQL Shell with the following command:
 
-     ```
-     <copy>[opc@...]$ sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</copy>
-     ```
+    ```bash
+    <copy>[opc@...]$ sudo yum install –y mysql-shell</copy>
+    ```
 
-     ![Connect](./images/06connect03.png " ")
+     ![Install MySQL Shell](./images/06connect05.png "Install MySQL Shell")
 
-6. Install MySQL Shell with the following command:
-
-     ```
-     <copy>[opc@...]$ sudo yum install –y mysql-shell</copy>
-     ```
-
-     ![Connect](./images/06connect05.png " ")
-
-7. From your compute instance, connect to MySQL using the MySQL Shell client tool.
+6. From your compute instance, connect to MySQL using the MySQL Shell client tool.
 
      > **Note:** The endpoint (IP address) can be found on the MySQL Database System Details page, under **Endpoints**.
 
-     ![Connect](./images/06connect06.png " ")
+     ![Connect MySQL Shell client](./images/06connect06.png "Connect MySQL Shell client")
 
-8. Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
+7. Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
 
-     ```
-     <copy>[opc@...]$ mysqlsh -u<MDS_admin_username> -p -h<MDS_endpoint></copy>
-     ```
+    ```bash
+    <copy>[opc@...]$ mysqlsh -u<MDS_admin_username> -p -h<MDS_endpoint></copy>
+    ```
 
-     ![Connect](./images/06connect07.png " ")
+     ![Connect MySQL Shell client with IP](./images/06connect07.png "Connect MySQL Shell client with IP")
 
-9. On MySQL Shell, switch to SQL mode to try some SQL commands. Type the following command at the prompt:    
+8. On MySQL Shell, switch to SQL mode to try some SQL commands. Type the following command at the prompt:
 
-     ```
+    ```bash
      <copy>\SQL</copy>
      ```
 
-     ![Connect](./images/06connect13.png " ")
+     ![switch to SQL mode ](./images/06connect13.png "switch to SQL mode")
 
-10. To display a list of databases, type the following command at the prompt:
+9. To display a list of databases, type the following command at the prompt:
 
-     ```
+    ```bash
      <copy>SHOW DATABASES;</copy>
      ```
 
-11. To display the database version, current date, and user, type the following command at the prompt:
+10. To display the database version, current date, and user, type the following command at the prompt:
 
-     ```
+    ```bash
      <copy>SELECT VERSION(), CURRENT_DATE, USER();</copy>
      ```
 
-12. To display MysQL user and host from user table type the following command at the prompt:
+11. To display MysQL user and host from user table type the following command at the prompt:
 
-     ```
+    ```bash
      <copy>SELECT USER, HOST FROM mysql.user;</copy>
      ```
 
      > **Note:** Optionally, you can use MySQL Workbench from your local machine to connect to the MySQL endpoint using your new compute instance as a jump box.
 
-13. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
+12. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
 
     - MySQL Workbench configuration for MySQL HeatWave:
 
-     ![Connect](./images/06workbench01.png " ")
+     ![MySQL Workbench configuration](./images/06workbench01.png "MySQL Workbench configuration")
 
     - MySQL Workbench launched for MySQL HeatWave :
 
-     ![Connect](./images/06workbench02.png " ")
+     ![MySQL Workbench launched for MySQL HeatWave](./images/06workbench02.png "MySQL Workbench launched for MySQL HeatWave")
 
 ## Task 7: Start, Stop, or Reboot MySQL HeatWave System
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Databases**, and select **DB Systems**.
 
-   ![](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png " ")
+   ![Select DB Systems](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png "Select DB Systems")
 
 2. List Database Systems.
 
-   ![MDS](./images/04mysql02_06.png " ")
+   ![List Database Systems](./images/04mysql02_06.png "List Database Systems")
 
 3. Select the **MDS\_Sandbox** Compartment and click **MDS\_DB** to open the MySQL DB System Details page.
 
-    ![MDS](./images/04mysql07.png " ")
+    ![DB System Details page](./images/04mysql07.png "DB System Details page")
 
 4. Select one of the following actions:
 
@@ -394,21 +386,21 @@ Deleting a database system is permanent. Any manual backups associated with the 
 
 2. List Database Systems.
 
-   ![MDS](./images/04mysql02_06.png " ")
+   ![List Database](./images/04mysql02_06.png "List Database")
 
 3. Choose the **MDS_Sandbox** Compartment.
 
 4. Click **MDS_DB** to open the MySQL DB System Details page.
 
-    ![MDS](./images/04mysql07.png " ")
+    ![MDS Details page](./images/04mysql07.png "MDS Details page")
 
 5. From the **More Actions** drop-down list, select **Delete**.
 
-    ![MDS](./images/04mysql08.png " ")
+    ![MDS Delete](./images/04mysql08.png "MDS Delete")
 
     > **Note:** A prompt is displayed, asking you to confirm the deletion.
 
-    ![MDS](./images/04mysql08_1.png " ")
+    ![Confirm Delete](./images/04mysql08_1.png "Confirm Delete")
 
 6. Enter `DELETE` in all caps and click **Delete 1 MySQL Database System**.
 
@@ -416,7 +408,7 @@ When the delete process is done, **MDS_DB** will be set to the **Delete** status
 
 ## Learn More
 
-* [Oracle Cloud Infrastructure MySQL HeatWave Database Service Documentation](https://docs.cloud.oracle.com/en-us/iaas/mysql-database)
+* [MySQL Heatwave Documentation](https://docs.oracle.com/en-us/iaas/mysql-database/)
 
 * [MySQL Database Documentation](https://www.mysql.com)
 
