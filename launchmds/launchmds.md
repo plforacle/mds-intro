@@ -42,7 +42,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
    > **Note:** Two Compartments, _Oracle Account Name_ (root) and a compartment for PaaS, were automatically created by the Oracle Cloud.
 
-3. In the Create Compartment dialog box, in the **NAME** field, enter **MDS_Sandbox**, and then enter a Description, select the **Parent Compartment**, and click **Create Compartment**.
+3. In the Create Compartment dialog box, in the **NAME** field, enter **HeatWave_Sandbox**, and then enter a Description, select the **Parent Compartment**, and click **Create Compartment**.
 
     ![Create a Compartment](./images/01compartment03.png "Enter Compartment Details")
 
@@ -60,7 +60,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![Policies page](./images/02policy02.png "Policies page")
 
-3. On the Create Policy page, in the **Description** field, enter **MDS_Policy** and select the root compartment.
+3. On the Create Policy page, in the **Description** field, enter **HeatWave_Policy** and select the root compartment.
 
 4. In the **Policy Builder** section, turn on the **Show manual editor** toggle switch.
 
@@ -106,7 +106,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![Start VCN Wizard](./images/03vcn03.png "Start VCN Wizard")
 
-4. On the Create a VCN with Internet Connectivity page, in the **Basic Information** section, in the **VCN Name** field, enter `MDS_VCN` and from the **Compartment** drop-down list, select **MDS_Sandbox**.
+4. On the Create a VCN with Internet Connectivity page, in the **Basic Information** section, in the **VCN Name** field, enter `HeatWave_VCN` and from the **Compartment** drop-down list, select **HeatWave_Sandbox**.
     > **Note:** Your screen should look similar to the following screen shot:
 
     ![VCN with Internet Connectivity page](./images/03vcn044.png "VCN with Internet Connectivity page")
@@ -125,21 +125,21 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![View Virtual Cloud Network](./images/03vcn06.png "View Virtual Cloud Network")
 
-8. In the **Name** column, click **MDS_VCN**.
+8. In the **Name** column, click **HeatWave_VCN**.
 
-   ![MDS_VCN](./images/03vcn08.png " ")
+   ![HeatWave_VCN](./images/03vcn08.png " ")
 
 9. On the Virtual Cloud Network Details page, under **Resources**, select **Security Lists (2)**.
 
      ![Security Lists](./images/03vcn09.png "Security Lists")
 
-## Task 4: Configure security list to allow MySQL incoming connectionMDS_VCNs
+## Task 4: Configure security list to allow MySQL incoming connection HeatWave_VCNs
 
-1. In the **Security Lists in _Compartment\_Name_ Compartment** section, click **Security List for Private Subnet-MDS_VCN**.
+1. In the **Security Lists in _Compartment\_Name_ Compartment** section, click **Security List for Private Subnet-HeatWave_VCN**.
 
-    ![Private Subnet-MDS_VCN](./images/03vcn10.png "Private Subnet-MDS_VCN")
+    ![Private Subnet-HeatWave_VCN](./images/03vcn10.png "Private Subnet-HeatWave_VCN")
 
-2. In the **Security List for Private Subnet-MDS_VCN** section, in the **Ingress Rules** section, click **Add Ingress Rules**.
+2. In the **Security List for Private Subnet-HeatWave_VCN** section, in the **Ingress Rules** section, click **Add Ingress Rules**.
 
     ![Ingress Rules](./images/03vcn11.png "Ingress Rules")
 
@@ -147,9 +147,9 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
     ![MySQL Port](./images/03vcn12.png "MySQL Port")
 
-4. On the Security List for Private Subnet-MDS_VCN page, the new ingress rules will be shown in the **Ingress Rules** list.
+4. On the Security List for Private Subnet-HeatWave_VCN page, the new ingress rules will be shown in the **Ingress Rules** list.
 
-    ![Private Subnet-MDS_VCN page](./images/03vcn13.png "Private Subnet-MDS_VCN page")
+    ![Private Subnet-HeatWave_VCN page](./images/03vcn13.png "Private Subnet-HeatWave_VCN page")
 
 ## Task 5: Create a MySQL Database System
 
@@ -172,7 +172,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
     - Configure backups
     - Show advanced options
 
-4. In **Provide basic information for the DB System**, select the **MDS\_Sandbox** Compartment, in the **Name** field and **Description** field, enter **MDS_DB**.
+4. In **Provide basic information for the DB System**, select the **HeatWave\_Sandbox** Compartment, in the **Name** field and **Description** field, enter **HeatWave_DB**.
 
     ![Description](./images/04mysql02_02.png "Description")
 
@@ -182,9 +182,9 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 6. In **Create Administrator credentials**, enter **admin** for the user name, enter **Welcome1!** for the password, and then enter **Welcome1!** to confirm the password.
 
-    ![MDS](./images/04mysql02_04.png " ")
+    ![HeatWave](./images/04mysql02_04.png " ")
 
-7. In **Configure networking**, keep default values **MDS\_VCN** for the VCH and **Private Subnet-MDS\_VCN (Regional)** for the subnet.
+7. In **Configure networking**, keep default values **HeatWave\_VCN** for the VCH and **Private Subnet-HeatWave\_VCN (Regional)** for the subnet.
 
     ![Configure networking](./images/04mysql02_05.png "Configure networking")
 
@@ -214,7 +214,7 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 12. On the MySQL Database System Details page, verify that the MySQL endpoint (address) displays under **Instances**.
 
-    ![MDS System Details page](./images/04mysql02_11.png "System Details page")
+    ![HeatWave System Details page](./images/04mysql02_11.png "System Details page")
 
 ## Task 6: Access Cloud Shell via the Console
 
@@ -283,7 +283,7 @@ The installation procedure involves downloading the airportdb database to cloud 
 
     ![mysql endpoint private ip](./images/mysql-endpoint-private-ip.png "mysql endpoint private ip")
 
-3. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
+3. Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the HeatWave private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
 
     (Example  **mysqlsh -uadmin -p -h10.0.1..**)
 
@@ -335,40 +335,42 @@ The installation procedure involves downloading the airportdb database to cloud 
 
    ![Compute Menu](https://oracle-livelabs.github.io/common/images/console/compute-instances.png "Compute Menu")
 
-2. In the **Instances in MDS_Sandbox Compartment** section, click **Create Instance**.
+2. In the **Instances in HeatWave_Sandbox Compartment** section, click **Create Instance**.
 
     ![Create Instance Page](./images/05compute02.png "Create Instance Page")
 
-3. In the **Create Compute Instance** section, enter **MDS_Client** for the instance name.
+3. In the **Create Compute Instance** section, enter **HeatWave_Client** for the instance name.
 
-4. Make sure the **MDS_Sandbox** compartment is selected.
+4. Make sure the **HeatWave_Sandbox** compartment is selected.
 
 5. Choose an operating system or image source (for this lab, select **Oracle Linux**).
 
-6. In the **Configure placement and hardware** section, select the **Availability Domain** and select  **VM.Standard.E2.1.Micro** for the **Shape**.
+6. In the **Configure placement and hardware** section, keep the default **Availability Domain** and keep the default **Shape**.
 
-   ![Configure placement and hardware](./images/05compute03.png "Configure placement and hardware")
+   ![Configure placement and hardware](./images/compute-create-info.png "Configure placement and hardware")
 
-    > **Note:** For the **Virtual cloud network**, make sure **MDS_VCN** is selected and **Assign a public IPv4 address** is set to **Yes**.  
+    > **Note:** For the **Virtual cloud network**, make sure **HeatWave_VCN** is selected and **Assign a public IPv4 address** is set to **Yes**.  
 
-   ![Assign a public IPv4 address](./images/05compute04.png "Assign a public IPv4 address")
+   ![Assign a public IPv4 address](./images/compute-create-vnic.png "Assign a public IPv4 address")
 
 7. If you have not already created your SSH key, complete the **Create Local SSH Key** lab. When you are done, continue on to the next step.
 
 8. In the **Add SSH keys** section, generate an SSH key pair or upload your own public key. Select one of the following options:
 
-   - **Generate SSH key pair:** Oracle Cloud Infrastructure (OCI) generates an RSA key pair for the instance. Click **Save Private Key**, and then save the private key on your computer. Optionally, click **Save Public Key** and then save the public key.
-   - **Choose public key files:** Upload the public key portion of your key pair. Either browse to the key file that you want to upload, or drag and drop the file into the field. To provide multiple keys, press and hold down the Command key (on Mac) or the CTRL key (on Windows) while selecting files.
-   - **Paste public keys:** Paste the public key portion of your key pair in the field.
-   - **No SSH keys:** Do _not_ select this option. You will not be able to connect to the compute instance using SSH.
+    - **Generate SSH key pair:** Oracle Cloud Infrastructure (OCI) generates an RSA key pair for the instance. Click **Save Private Key**, and then save the private key on your computer. Optionally, click **Save Public Key** and then save the public key.
+    - **Choose public key files:** Upload the public key portion of your key pair. Either browse to the key file that you want to upload, or drag and drop the file into the field. To provide multiple keys, press and hold down the Command key (on Mac) or the CTRL key (on Windows) while selecting files.
+    - **Paste public keys:** Paste the public key portion of your key pair in the field.
+    - **No SSH keys:** Do _not_ select this option. You will not be able to connect to the compute instance using SSH.
 
-    ![SSH key pair](./images/05compute06.png "SSH key pair")
+    ![SSH key pair](./images/compute-create.png "SSH key pair")
+
+9. Click the Create **button**
 
     > **Note:** The new virtual machine will be ready to use after a few minutes. The state will be shown as **Provisioning** during the creation.
 
     ![Provisioning](./images/05compute07.png "Provisioning")
 
-    > **Note:** The **Running** state indicates that the virtual machine is ready to use. **Save the Public IP Address** is under **Instance Access**  on the **MDS_Client** page.
+    > **Note:** The **Running** state indicates that the virtual machine is ready for use. **Save the Public IP Address** is under **Instance Access**  on the **HeatWave_Client** page.
 
     ![Instance Access](./images/05compute08.png "Instance Access")
 
@@ -382,14 +384,14 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
 2. From a terminal window on your local system, connect to the compute instance with the SSH command.
 
-3. Indicate the location of the private key that you created earlier with **MDS_Client**.
+3. Indicate the location of the private key that you created earlier with **HeatWave_Client**.
 
 4. Enter the user name `opc` and the public **IP Address**.
 
-      > **Note:** The **MDS\_Client** shows the public IP Address as mentioned at the end of **Task 5: Create the Client Virtual Machine**. For example, **ssh -i ~/.ssh/id_rsa opc@&132.145.170.990**
+      > **Note:** The **HeatWave\_Client** shows the public IP Address as mentioned at the end of **Task 5: Create the Client Virtual Machine**. For example, **ssh -i ~/.ssh/id_rsa opc@&132.145.170.990**
 
     ```bash
-    <copy>$ ssh -i ~/.ssh/id_rsa opc@&<your_compute_instance_ip>;</copy>
+    <copy>ssh -i ~/.ssh/id_rsa opc@&<your_compute_instance_ip>;</copy>
     ```
 
      ![MySQL Connect](./images/06connect01.png "MySQL Connect")
@@ -411,7 +413,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 7. Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
 
     ```bash
-    <copy>[opc@...]$ mysqlsh -u<MDS_admin_username> -p -h<MDS_endpoint></copy>
+    <copy>[opc@...]$ mysqlsh -u<HeatWave_admin_username> -p -h<HeatWave_endpoint></copy>
     ```
 
      ![Connect MySQL Shell client with IP](./images/06connect07.png "Connect MySQL Shell client with IP")
@@ -462,9 +464,9 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
 2. List Database Systems.
 
-   ![List Database Systems](./images/04mysql02_06.png "List Database Systems")
+   ![List Database Systems](./images/04mysql02_6.png "List Database Systems")
 
-3. Select the **MDS\_Sandbox** Compartment and click **MDS\_DB** to open the MySQL DB System Details page.
+3. Select the **HeatWave\_Sandbox** Compartment and click **HeatWave\_DB** to open the MySQL DB System Details page.
 
     ![DB System Details page](./images/04mysql07.png "DB System Details page")
 
@@ -497,25 +499,23 @@ Deleting a database system is permanent. Any manual backups associated with the 
 
 2. List Database Systems.
 
-   ![List Database](./images/04mysql02_06.png "List Database")
+   ![List Database](./images/04mysql02_6.png "List Database")
 
-3. Choose the **MDS_Sandbox** Compartment.
+3. Choose the **HeatWave_Sandbox** Compartment.
 
-4. Click **MDS_DB** to open the MySQL DB System Details page.
+4. Click **HeatWave_DB** to open the MySQL DB System Details page.
 
-    ![MDS Details page](./images/04mysql07.png "MDS Details page")
+    ![HeatWave Details page](./images/04mysql07.png "HeatWave Details page")
 
 5. From the **More Actions** drop-down list, select **Delete**.
 
-    ![MDS Delete](./images/04mysql08.png "MDS Delete")
+    ![HeatWave Delete](./images/04mysql08.png "HeatWave Delete")
 
     > **Note:** A prompt is displayed, asking you to confirm the deletion.
 
     ![Confirm Delete](./images/04mysql08_1.png "Confirm Delete")
 
-6. Enter `DELETE` in all caps and click **Delete 1 MySQL Database System**.
-
-When the delete process is done, **MDS_DB** will be set to the **Delete** status.
+When the delete process is done, **HeatWave_DB** will be set to the **Delete** status.
 
 ## Learn More
 
