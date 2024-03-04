@@ -456,7 +456,22 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![MySQL Workbench launched for MySQL HeatWave](./images/06workbench02.png "MySQL Workbench launched for MySQL HeatWave")
 
-## Task 11: Start, Stop, or Reboot MySQL HeatWave System
+## Task 11: View MySQLHeatWave Metrics
+
+Do the following to view the metrics for your DB system:
+
+1. Open the navigation menu and click Databases. Under MySQL HeatWave, click DB systems.
+2. Choose the Compartment from the List scope.
+3. Click the name of the DB system to open the DB system details page.
+4. Under Resources, click Metrics.
+5. Use the Metrics data filter to view metrics for a particular resource:
+    - All: Displays metrics for all resources.
+    - DB system: Displays metrics for the current DB system.
+    - Backup: Displays metrics for all backups of the current DB system.
+
+    ![navigation mysql with metrics](./images/navigation-mysql-with-metrics.png "navigation mysql with metrics")
+
+## Task 12: Start, Stop, or Reboot MySQL HeatWave System
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Databases**, and select **DB Systems**.
 
@@ -489,7 +504,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
 6. Select the required shutdown type and click **Stop** or **Restart**, depending on the action chosen.
 
-## Task 12: Delete the MySQL Database System
+## Task 13: Delete the MySQL Database System
 
 Deleting a database system is permanent. Any manual backups associated with the deleted database system are retained for their retention periods. Automatic backups are deleted with the database system.
 
