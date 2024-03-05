@@ -344,7 +344,7 @@ The installation procedure involves downloading the airportdb database to cloud 
 
 2. In the **Instances in HeatWave_Sandbox Compartment** section, click **Create Instance**.
 
-    ![Create Instance Page](./images/05compute02.png "Create Instance Page")
+    ![Compute Instance Menu](./images/compute-menu-create-instance.png "Compute Instance Menu")
 
 3. In the **Create Compute Instance** section, enter **HeatWave_Client** for the instance name.
 
@@ -375,11 +375,11 @@ The installation procedure involves downloading the airportdb database to cloud 
 
     > **Note:** The new virtual machine will be ready to use after a few minutes. The state will be shown as **Provisioning** during the creation.
 
-    ![Provisioning](./images/05compute07.png "Provisioning")
+    ![Compute Provisioning](./images/compute-provisioning.png "Compute Provisioning")
 
     > **Note:** The **Running** state indicates that the virtual machine is ready for use. **Save the Public IP Address** is under **Instance Access**  on the **HeatWave_Client** page.
 
-    ![Instance Access](./images/05compute08.png "Instance Access")
+    ![Compute Active](./images/compute-active.png "Compute Active")
 
 ## Task 10: Connect to MySQL Database
 
@@ -395,13 +395,13 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
 4. Enter the user name `opc` and the public **IP Address**.
 
-      > **Note:** The **HeatWave\_Client** shows the public IP Address as mentioned at the end of **Task 5: Create the Client Virtual Machine**. For example, **ssh -i ~/.ssh/id_rsa opc@&132.145.170.990**
+      > **Note:** The **HeatWave\_Client** shows the public IP Address as mentioned at the end of **Task 9: Create the Client Virtual Machine**. For example, **ssh -i ~/.ssh/id_rsa opc@132.145.678.990**
 
     ```bash
     <copy>ssh -i ~/.ssh/id_rsa opc@&<your_compute_instance_ip>;</copy>
     ```
 
-     ![MySQL Connect](./images/06connect01.png "MySQL Connect")
+     ![SSH Connect](./images/connect-ssh.png "SSH Connect")
 
 5. Install MySQL Shell with the following command:
 
@@ -409,43 +409,39 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
     <copy>[opc@...]$ sudo yum install –y mysql-shell</copy>
     ```
 
-     ![Install MySQL Shell](./images/06connect05.png "Install MySQL Shell")
+     ![Install MySQL Shell](./images/connect-install-mysql-shell.png "Install MySQL Shell")
 
-6. From your compute instance, connect to MySQL using the MySQL Shell client tool.
+6. Use the following command to connect to MySQL  using the MySQL Shell client tool. 
 
-     > **Note:** The endpoint (IP address) can be found on the MySQL Database System Details page, under **Endpoints**.
-
-     ![Connect MySQL Shell client](./images/06connect06.png "Connect MySQL Shell client")
-
-7. Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
+    For example,  **mysqlsh -uadmin -p -h10.170.990**.
 
     ```bash
     <copy>[opc@...]$ mysqlsh -u<HeatWave_admin_username> -p -h<HeatWave_endpoint></copy>
     ```
 
-     ![Connect MySQL Shell client with IP](./images/06connect07.png "Connect MySQL Shell client with IP")
+     ![Connect MySQL Shell client with IP](./images/connect-mysql-shell.png "Connect MySQL Shell client with IP")
 
-8. On MySQL Shell, switch to SQL mode to try some SQL commands. Type the following command at the prompt:
+7. On MySQL Shell, switch to SQL mode to try some SQL commands. Type the following command at the prompt:
 
     ```bash
      <copy>\SQL</copy>
      ```
 
-     ![switch to SQL mode ](./images/06connect13.png "switch to SQL mode")
+     ![switch to SQL mode ](./images/connect-sql-switch.png "switch to SQL mode")
 
-9. To display a list of databases, type the following command at the prompt:
+8. To display a list of databases, type the following command at the prompt:
 
     ```bash
      <copy>SHOW DATABASES;</copy>
      ```
 
-10. To display the database version, current date, and user, type the following command at the prompt:
+9. To display the database version, current date, and user, type the following command at the prompt:
 
     ```bash
      <copy>SELECT VERSION(), CURRENT_DATE, USER();</copy>
      ```
 
-11. To display MysQL user and host from user table type the following command at the prompt:
+10. To display MysQL user and host from user table type the following command at the prompt:
 
     ```bash
      <copy>SELECT USER, HOST FROM mysql.user;</copy>
@@ -453,15 +449,15 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      > **Note:** Optionally, you can use MySQL Workbench from your local machine to connect to the MySQL endpoint using your new compute instance as a jump box.
 
-12. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
+11. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
 
     - MySQL Workbench configuration for MySQL HeatWave:
 
-     ![MySQL Workbench configuration](./images/06workbench01.png "MySQL Workbench configuration")
+     ![MySQL Workbench configuration](./images/workbench-config.png "MySQL Workbench configuration")
 
     - MySQL Workbench launched for MySQL HeatWave :
 
-     ![MySQL Workbench launched for MySQL HeatWave](./images/06workbench02.png "MySQL Workbench launched for MySQL HeatWave")
+     ![MySQL Workbench launched for MySQL HeatWave](./images/workbench-launch.png "MySQL Workbench launched for MySQL HeatWave")
 
 ## Task 11: View MySQLHeatWave Metrics
 
