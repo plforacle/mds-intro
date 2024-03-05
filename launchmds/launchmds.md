@@ -486,11 +486,11 @@ Do the following to view the metrics for your DB system:
 
 2. List Database Systems.
 
-   ![List Database Systems](./images/list-mysql-system.png "List Database Systems")
+   ![List Database Systems](./images/mysql-list.png "List Database Systems")
 
 3. Select the **HeatWave\_Sandbox** Compartment and click **HeatWave\_DB** to open the MySQL DB System Details page.
 
-    ![DB System Details page](./images/04mysql07.png "DB System Details page")
+    ![DB System Details page](./images/mysql-details.png "DB System Details page")
 
 4. Select one of the following actions:
 
@@ -517,36 +517,36 @@ Deleting a database system is permanent. Any manual backups associated with the 
 
 1. Click the **Navigation Menu** in the upper-left corner, navigate to **Databases**, and select **DB Systems**.
 
-   ![](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png " ")
+    ![Navigation Menu](https://oracle-livelabs.github.io/common/images/console/database-dbsys.png "Navigation Menu ")
 
 2. List Database Systems.
 
-   ![List Database](./images/04mysql02_6.png "List Database")
+    ![List Database Systems](./images/mysql-list.png "List Database Systems")
 
 3. Choose the **HeatWave_Sandbox** Compartment.
 
 4. Click **HeatWave_DB** to open the MySQL DB System Details page.
 
-    ![HeatWave Details page](./images/04mysql07.png "HeatWave Details page")
+    ![DB System Details page](./images/mysql-details.png "DB System Details page")
 
 5. From the **More Actions** drop-down list, select **Delete**.
 
-    ![HeatWave Delete](./images/04mysql08.png "HeatWave Delete")
+      ![HeatWave Details More Actions page](./images/mysql-details-more-actions.png "HeatWave Details More Actions page")
 
-    > **Note:** A prompt is displayed, asking you to confirm the deletion.
+6. Check the **Delete DB System Permanently** box and click the **Delete DB System** button.
 
-    ![Confirm Delete](./images/04mysql08_1.png "Confirm Delete")
+    ![Confirm Delete](./images/mysql-confirm-delete.png "Confirm Delete")
 
 When the delete process is done, **HeatWave_DB** will be set to the **Delete** status.
 
 ## Learn More
 
-* [MySQL Heatwave Documentation](https://docs.oracle.com/en-us/iaas/mysql-database/)
+- [MySQL Heatwave Documentation](https://docs.oracle.com/en-us/iaas/mysql-database/)
 
-* [MySQL Database Documentation](https://www.mysql.com)
+- [MySQL Database Documentation](https://www.mysql.com)
 
 ## Acknowledgements
 
-* **Author** -  Perside Foster, MySQL Solution Engineering
-* **Contributors** -  Sriram Vrinda, MySQL Product Manager
-* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, February 2024
+- **Author** -  Perside Foster, MySQL Solution Engineering
+- **Contributors** -  Sriram Vrinda, MySQL Product Manager
+- **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, March 2024
