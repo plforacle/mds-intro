@@ -38,17 +38,17 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 2. On the Compartments page, click **Create Compartment**.
 
-    ![Compartment2](./images/01compartment-page.png "In Compartments page ")
+    ![Compartment2](./images/compartment-page.png "In Compartments page ")
 
    > **Note:** Two Compartments, _Oracle Account Name_ (root) and a compartment for PaaS, were automatically created by the Oracle Cloud.
 
 3. In the Create Compartment dialog box, in the **NAME** field, enter **HeatWave_Sandbox**, and then enter a Description, select the **Parent Compartment**, and click **Create Compartment**.
 
-    ![Create a Compartment](./images/01compartment03.png "Enter Compartment Details")
+    ![Create a Compartment](./images/compartment-details.png "Enter Compartment Details")
 
     The following screen shot shows a completed compartment:
 
-    ![Completed Compartment](./images/01compartment04.png "Completed compartment")
+    ![Completed Compartment](./images/compartment-completed.png "Completed compartment")
 
 ## Task 2: Create a Policy
 
@@ -58,13 +58,13 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 2. On the Policies page, in the **List Scope** section, select the Compartment (root) and click **Create Policy**.
 
-    ![Policies page](./images/02policy02.png "Policies page")
+    ![Policies page](./images/policy-page.png "Policies page")
 
 3. On the Create Policy page, in the **Description** field, enter **HeatWave_Policy** and select the root compartment.
 
 4. In the **Policy Builder** section, turn on the **Show manual editor** toggle switch.
 
-    ![Create Policy page](./images/02policy03.png "Create Policy page")
+    ![Create Policy page](./images/policy-builder.png "Create Policy page")
 
 5. Enter the following required MySQL HeatWave policies:
 
@@ -88,11 +88,11 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 6. Click **Create**.
 
-    ![Create Policy page](./images/02policy04.png "Create Policy page")
+    ![Create Policy page](./images/policy-create.png "Create Policy page")
 
     > **Note:** The following screen shot shows the completed policy creation:
 
-    ![Completed policy creation page](./images/02policy05.png "Completed policy creation page")
+    ![Completed policy creation page](./images/policy-complete.png "Completed policy creation page")
 
 ## Task 3: Create a VCN
 
@@ -104,52 +104,52 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 3. Select **VCN with Internet Connectivity** and click **Start VCN Wizard**.
 
-    ![Start VCN Wizard](./images/03vcn03.png "Start VCN Wizard")
+    ![Start VCN Wizard](./images/vcn-start.png "Start VCN Wizard")
 
 4. On the Create a VCN with Internet Connectivity page, in the **Basic Information** section, in the **VCN Name** field, enter `HeatWave_VCN` and from the **Compartment** drop-down list, select **HeatWave_Sandbox**.
     > **Note:** Your screen should look similar to the following screen shot:
 
-    ![VCN with Internet Connectivity page](./images/03vcn044.png "VCN with Internet Connectivity page")
+    ![VCN with Internet Connectivity page](./images/vcn-basic.png "VCN with Internet Connectivity page")
 
 5. Click **Next** at the bottom of the screen.
 
 6. Review the **Oracle Virtual Cloud Network (VCN)**, **Subnets**, and **Gateways** sections and click **Create** to create the VCN.
 
-    ![VCN](./images/03vcn04.png "VCN")
+    ![VCN](./images/vcn-review.png "VCN Review")
 
     > **Note:** The VCN creation is completing.
 
-    ![VCN creation page](./images/03vcn05.png "VCN creation page")
+    ![VCN creation page](./images/vcn-create.png "VCN creation page")
 
 7. Click **View Virtual Cloud Network** to display the created VCN.
 
-    ![View Virtual Cloud Network](./images/03vcn06.png "View Virtual Cloud Network")
+    ![View Virtual Cloud Network](./images/vcn-view.png "View Virtual Cloud Network")
 
 8. In the **Name** column, click **HeatWave_VCN**.
 
-   ![HeatWave_VCN](./images/03vcn08.png " ")
+   ![HeatWave_VCN](./images/vcn-heatwave.png " heatwave vcn view")
 
 9. On the Virtual Cloud Network Details page, under **Resources**, select **Security Lists (2)**.
 
-     ![Security Lists](./images/03vcn09.png "Security Lists")
+     ![Security Lists](./images/vcn-security-list.png "VCN Security Lists")
 
 ## Task 4: Configure security list to allow MySQL incoming connection HeatWave_VCNs
 
 1. In the **Security Lists in _Compartment\_Name_ Compartment** section, click **Security List for Private Subnet-HeatWave_VCN**.
 
-    ![Private Subnet-HeatWave_VCN](./images/03vcn10.png "Private Subnet-HeatWave_VCN")
+    ![Private Subnet-HeatWave_VCN](./images/vcn-private-subnet.png "Private Subnet-HeatWave_VCN")
 
 2. In the **Security List for Private Subnet-HeatWave_VCN** section, in the **Ingress Rules** section, click **Add Ingress Rules**.
 
-    ![Ingress Rules](./images/03vcn11.png "Ingress Rules")
+    ![Ingress Rules](./images/vcn-private-subnet-ingress-rules.png "Ingress Rules")
 
 3. In the **Add Ingress Rule** dialog box, add an ingress rule with **Source CIDR** `0.0.0.0/0` and destination port number `3306, 33060` and click **Add Ingress Rule**.
 
-    ![MySQL Port](./images/03vcn12.png "MySQL Port")
+    ![MySQL Port](./images/vcn-private-subnet-ingress-rules-input.png "MySQL Port")
 
 4. On the Security List for Private Subnet-HeatWave_VCN page, the new ingress rules will be shown in the **Ingress Rules** list.
 
-    ![Private Subnet-HeatWave_VCN page](./images/03vcn13.png "Private Subnet-HeatWave_VCN page")
+    ![Private Subnet-HeatWave_VCN page](./images/vcn-private-subnet-ingress-rules-page.png "Private Subnet-HeatWave_VCN page")
 
 ## Task 5: Create a MySQL Database System
 
@@ -159,9 +159,13 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
 
 2. Click **Create MySQL Database System**.
 
-    ![Create MySQL Database System](./images/04mysql02.png "Create MySQL Database System")
+    ![Create Database System](./images/mysql-create-menu.png "MySQL Create Database System")
 
-3. On the Create MySQL Database System dialog box, complete the fields in each section:
+3. Select the Development or Testing Option
+
+    ![Development](./images/mysql-development.png "Select Development")
+
+4. On the Create MySQL Database System dialog box, complete the fields in each section:
 
     - Provide basic information for the database system
     - Set up your required database system
@@ -172,49 +176,52 @@ You must have an OCI tenancy subscribed to your home region and enough limits co
     - Configure backups
     - Show advanced options
 
-4. In **Provide basic information for the DB System**, select the **HeatWave\_Sandbox** Compartment, in the **Name** field and **Description** field, enter **HeatWave_DB**.
+5. In **Provide basic information for the DB System**, select the **HeatWave\_Sandbox** Compartment, in the **Name** field and **Description** field, enter **HeatWave_DB**.
 
-    ![Description](./images/04mysql02_02.png "Description")
-
-5. In **Setup your required Database System**, select **Standalone** to specify a single-instance database system.
-
-    ![Standalone](./images/04mysql02_03.png "Standalone")
+    ![Create MySQL Database Basic](./images/mysql-basic.png "Create MySQL Database Basic")
 
 6. In **Create Administrator credentials**, enter **admin** for the user name, enter **Welcome1!** for the password, and then enter **Welcome1!** to confirm the password.
 
-    ![HeatWave](./images/04mysql02_04.png " ")
+    ![HeatWave](./images/mysql-admin.png "MySQL Admin ")
 
-7. In **Configure networking**, keep default values **HeatWave\_VCN** for the VCH and **Private Subnet-HeatWave\_VCN (Regional)** for the subnet.
+7. In **Setup your required Database System**, select **Standalone** to specify a single-instance database system.
 
-    ![Configure networking](./images/04mysql02_05.png "Configure networking")
+    ![Standalone](./images/mysql-standalone.png "Standalone")
 
-8. In **Configure placement**, keep **Availability Domain** selected.
+8. In **Configure networking**, keep default values **HeatWave\_VCN** for the VCH and **Private Subnet-HeatWave\_VCN (Regional)** for the subnet.
+
+    ![Configure networking](./images/mysql-networking.png "Configure networking")
+
+9. In **Configure placement**, keep **Availability Domain** selected.
 
     > **Note:** Do not select **Choose a Fault Domain** for this database system. Oracle will select the best placement for you.
 
-    ![Configure placement](./images/04mysql02_06.png "Configure placement")
+    ![Configure placement](./images/mysql-placement.png "MySQL Configure placement")
 
-9. In **Configure hardware**, keep default shape **MySQL.VM.Standard.E3.1.8GB** and keep the default value **50** for the **Data Storage Size (GB)**.
+10. In **Configure hardware**:  
+    - Remove the check mark from **Enable HeatWave**  
+    - Set the default shape to **MySQL.2** 
+    - Set the value **100** for the **Data Storage Size (GB)**.  
 
-    ![Data Storage Size](./images/04mysql02_07.png "Data Storage Size")
+    ![MySQL HardWare](./images/mysql-configure-hardware.png "MySQL Configure HardWare")
 
-10. In **Configure Backups**, keep **Enable Automatic Backups** selected. Set the retention period to `7` and select **Default Backup Window**.
+11. In **Configure Backups**, keep **Enable Automatic Backups** selected. Set the retention period to `7` and select **Default Backup Window**.
 
-    ![Configure Backups](./images/04mysql02_08.png "Configure Backups")
+    ![Configure Backups](./images/mysql-configure-backup.png "Configure Backups")
 
-11. Click **Create**.
+12. Click **Create**.
 
-    ![Create DB](./images/04mysql02_09.png "Create DB")
+    ![Create DB](./images/mysq-create-db.png "MySQL Create DB")
 
     > **Note:** The New MySQL Database System will be ready to use after a few minutes. The state will be shown as **Creating** during the creation.
 
-    ![Creating DB](./images/04mysql02_10.png "Creating DB")
+    ![Creating DB](./images/mysql_creating.png "Creating DB")
 
     > **Note:** The **Active** state indicates that the database system is ready to use.
 
-12. On the MySQL Database System Details page, verify that the MySQL endpoint (address) displays under **Instances**.
+13. The state **Active** indicates that the DB System is ready for use. On the **heatwave-db** Page,select the Connections tab, check and save the Endpoint (Private IP Address). Later, you will need this value to connect to the Heatwave DB using the MySQL Shell client tool.
 
-    ![HeatWave System Details page](./images/04mysql02_11.png "System Details page")
+    ![HeatWave Details page](./images/mysql-active.png "MySQL Details page")
 
 ## Task 6: Access Cloud Shell via the Console
 
@@ -479,7 +486,7 @@ Do the following to view the metrics for your DB system:
 
 2. List Database Systems.
 
-   ![List Database Systems](./images/04mysql02_6.png "List Database Systems")
+   ![List Database Systems](./images/list-mysql-system.png "List Database Systems")
 
 3. Select the **HeatWave\_Sandbox** Compartment and click **HeatWave\_DB** to open the MySQL DB System Details page.
 
